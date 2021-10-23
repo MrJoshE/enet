@@ -1,0 +1,1 @@
+Rails.application.config.session_store :cookie_store, key: '_enet', domain: 'localhost:3000'

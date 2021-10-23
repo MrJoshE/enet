@@ -3,4 +3,10 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   get 'about' => 'pages#about'
+  
+  delete 'logout' => 'sessions#logout'
+  get 'logged_in' => 'sessions#logged_in'
+
+  resources :sessions, only: [:create]
+  resources :registrations, only: [:create]
 end
