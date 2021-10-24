@@ -14,6 +14,12 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     allow do
         origins 'http://localhost:3000'
         resource "*", headers: :any, methods: [:get, :post, :head, :delete], credentials: true
-    end 
+    end
+
+    # Creating another allow block that allows incoming requests from the production server
+    allow do
+      origins 'https://evernet.herokuapp.com/'
+      resource "*", headers: :any, methods: [:get, :post, :head, :delete], credentials: true
+    end
 
 end

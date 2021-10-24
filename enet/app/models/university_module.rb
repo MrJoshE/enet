@@ -1,0 +1,2 @@
+class UniversityModule < ApplicationRecord
+end

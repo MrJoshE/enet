@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Identifier:</strong>
+  <%= @university_module.identifier %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @university_module.name %>
+</p>
+
+<p>
+  <strong>Module leader:</strong>
+  <%= @university_module.module_leader %>
+</p>
+
+<%= link_to 'Edit', edit_university_module_path(@university_module) %> |
+<%= link_to 'Back', university_modules_path %>

@@ -2,7 +2,7 @@
 # routes such as the about page and the contact us page.
 class PagesController < ApplicationController
     # The class constructor that allows us to create class wide variables.
-    def initialize()
+    def initialize
         @footer = 'This project was made as part of com2025 Coursework by Josh Everett'
     end
 

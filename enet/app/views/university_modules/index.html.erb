@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>University Modules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Identifier</th>
+      <th>Name</th>
+      <th>Module leader</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @university_modules.each do |university_module| %>
+      <tr>
+        <td><%= university_module.identifier %></td>
+        <td><%= university_module.name %></td>
+        <td><%= university_module.module_leader %></td>
+        <td><%= link_to 'Show', university_module %></td>
+        <td><%= link_to 'Edit', edit_university_module_path(university_module) %></td>
+        <td><%= link_to 'Destroy', university_module, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New University Module', new_university_module_path %>

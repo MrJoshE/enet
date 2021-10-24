@@ -4,7 +4,7 @@ module CurrentUserConcern extend ActiveSupport::Concern
     # before any action is made check that the current
     # user is logged in / there is a current user in the 
     # session
-    include do
+    included do
         before_action :set_current_user
     end
 
