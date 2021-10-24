@@ -16,4 +16,8 @@
 //= require turbolinks
 //= require_tree .
 //= require pages
-//= require_self
+
+$(document).ready(function (e){
+    console.log(e)
+    alert('hello')
+});

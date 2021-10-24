@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   get 'about' => 'pages#about'
+  get 'unauthorized' => 'pages#unauthorized'
+
   
   delete 'logout' => 'sessions#logout'
   get 'logged_in' => 'sessions#logged_in'

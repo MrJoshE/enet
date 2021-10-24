@@ -20,4 +20,13 @@ module CurrentUserConcern extend ActiveSupport::Concern
         end
     end
 
+    # Performs a further check to make sure that the user is
+    # actually logged in, useful for controllers that require
+    # the user to be logged in for all of the routes.
+    def auth_check
+        if !@current_user
+            redirect_to "/unauthorized?url=#{request.url}"
+        end
+    end
+
 end

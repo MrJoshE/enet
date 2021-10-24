@@ -1,5 +1,8 @@
 class UniversityModulesController < ApplicationController
   before_action :set_university_module, only: %i[ show edit update destroy ]
+  before_action :auth_check
+
+  include CurrentUserConcern
 
   # GET /university_modules or /university_modules.json
   def index

@@ -7,6 +7,8 @@ class SessionsController < ApplicationController
     # When sessions#create is called a post request will be sent 
     # and received here and this function will be run.
     def create
+        # Lookup a user in the user table that has the email provided.
+        # If there
         user = User
                 .find_by(email: params['email'])
                 .try(:authenticate, params['password'])
@@ -51,7 +53,7 @@ class SessionsController < ApplicationController
             # Send a json response telling the caller that there is no user logged in.
             render json:{
                 logged_in: false
-            } 
+            }
         end
     end
 

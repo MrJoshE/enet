@@ -39,5 +39,11 @@ class PagesController < ApplicationController
     def signup
     end
 
+    # The page that the user will be sent if they are unauthorized / are not
+    # logged in
+    def unauthorized
+        @sender = params['url']
+    end
+
 
 end
