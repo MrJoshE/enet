@@ -3,6 +3,7 @@
 class PagesController < ApplicationController
     # The class constructor that allows us to create class wide variables.
     def initialize
+        super
         @footer = 'This project was made as part of com2025 Coursework by Josh Everett'
     end
 

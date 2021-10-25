@@ -58,8 +58,9 @@ group :test do
 end
 
 gem 'jquery-rails'
-gem 'boostrap-sass'
+=begin
 gem 'modernizr-rails'
+=end
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

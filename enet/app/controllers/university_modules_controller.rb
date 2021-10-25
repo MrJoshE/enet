@@ -24,7 +24,7 @@ class UniversityModulesController < ApplicationController
 
   # POST /university_modules or /university_modules.json
   def create
-    @university_module = UniversityModule.new(university_module_params)
+    @university_module = UniversityModule.new
 
     respond_to do |format|
       if @university_module.save

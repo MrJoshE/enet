@@ -1,8 +1,36 @@
-<h1 id='title'> <%= @title %> </h1>
 
-<p class='description'> <%= @description %> </p>
 
-<button>Click here to login</button><br>
-<button>Click here to register</button>
+<h1 class="title" class=""> <%= @title %> </h1>
 
-<footer> <%= @footer %> </footer>
+
+<h5 id="website_description">
+  <%= @description %>
+  <small class="text-muted">made by Josh Everett</small>
+</h5>
+  <div class="login-form card shadow-lg">
+    <form style="margin-bottom: 25px">
+      <fieldset>
+        <h4 style="text-align: center; padding: 10px">Enter your details</h4>
+
+        <div class="form-group" style="margin-bottom: 10px">
+         <input type="email" class="form-control" id="email_field" aria-describedby="emailHelp" placeholder="Enter email">
+
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" id="password_field" placeholder="Password">
+        </div>
+      </fieldset>
+    </form>
+
+    <button id="login_button" class="btn btn-primary" style="margin-bottom: 10px"> Login </button>
+    <button id="register_buttonS" class="btn btn-outline-primary"> Register </button>
+
+  </div>
+
+
+
+
+
+<script>
+
+</script>
