@@ -12,13 +12,8 @@
 
 ActiveRecord::Schema.define(version: 2021_10_24_115530) do
 
-  create_table "university_modules", force: :cascade do |t|
-    t.string "identifier"
-    t.string "name"
-    t.string "module_leader"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
     t.string "email"

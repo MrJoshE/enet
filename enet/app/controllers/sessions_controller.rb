@@ -30,10 +30,10 @@ class SessionsController < ApplicationController
         # provided doesn't match the users password then return a json response with 
         # the status 401 as this is the global status code for unauthorized.
         else
-            render json:{
+           render json:{
+             logged_in: false,
                 status: 401
             }
-
         end 
 
     end

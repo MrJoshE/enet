@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#logout'
   get 'logged_in' => 'sessions#logged_in'
 
+  get 'dashboard' => 'dashboard#index'
+
   resources :sessions, only: [:create]
   resources :registrations, only: [:create]
 end

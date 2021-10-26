@@ -1,5 +1,6 @@
 {
   "name": "enet",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+  }
 }
