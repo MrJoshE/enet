@@ -44,6 +44,11 @@ class PagesController < ApplicationController
     # logged in
     def unauthorized
         @sender = params['url']
+        if @sender
+            @message = "The url #{@sender} requires you to log in. You are not authorized."
+        else
+            @message = "You are not authorized to complete this action please login and try again."
+        end
     end
 
 

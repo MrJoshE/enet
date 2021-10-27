@@ -1,0 +1,25 @@
+
+<h1 class="title"> Registration Page </h1>
+
+<div class="card login-form ">
+
+  <form action="/registrations" method="post">
+    <div class="form-group">
+      <h4 style="text-align: center; padding: 10px">Enter your details</h4>
+
+      <div class="form-floating mb-3">
+        <input name="email" type="email" class="form-control" id="email" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input name="password" type="password" class="form-control" id="password" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+      <div class="form-floating">
+        <input name="password_confirmation" type="password" class="form-control" id="password_confirmation" placeholder="Password">
+        <label for="floatingPassword">Confirm your password</label>
+      </div>
+    </div>
+    <button style="margin-top: 20px" class="btn-primary" type="submit">Register</button>
+  </form>
+</div>

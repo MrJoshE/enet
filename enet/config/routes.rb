@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   get 'unauthorized' => 'pages#unauthorized'
 
   
-  delete 'logout' => 'sessions#logout'
+  get 'sessions/logout' => 'sessions#logout'
   get 'logged_in' => 'sessions#logged_in'
 
   get 'dashboard' => 'dashboard#index'
 
   resources :sessions, only: [:create]
-  resources :registrations, only: [:create]
+  resources :registrations, only: [:create, :index]
 end

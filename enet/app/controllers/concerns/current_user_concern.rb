@@ -12,11 +12,11 @@ module CurrentUserConcern extend ActiveSupport::Concern
     # in the session
     def set_current_user
         # checks if there is a user_id stored in the session
-        if (session['user_id'])
+        if session[:user_id]
             # sets the @current_user variable to the user
             # with that id so that it can be used by any 
             # controller with this CurrentUserConcern 
-            @current_user = User.find(session['user_id'])
+            @current_user = User.find(session[:user_id])
         end
     end
 
@@ -24,9 +24,13 @@ module CurrentUserConcern extend ActiveSupport::Concern
     # actually logged in, useful for controllers that require
     # the user to be logged in for all of the routes.
     def auth_check
-        if !@current_user
+        unless @current_user
             redirect_to "/unauthorized?url=#{request.url}"
         end
+    end
+
+    def log_in(user)
+        session[:user_id] = user.id
     end
 
 end
