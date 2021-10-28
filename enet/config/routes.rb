@@ -15,5 +15,7 @@ Rails.application.routes.draw do
   get 'dashboard' => 'dashboard#index'
 
   resources :sessions, only: [:create]
+
+  get 'registrations/select' => 'registrations#select'
   resources :registrations, only: [:create, :index]
 end

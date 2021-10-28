@@ -30,6 +30,14 @@
 
 
 <body class="dashboard">
-<div></div>
+  <div>
+     <% @modules.each do |university_module| %>
+
+      <div class="card">
+        <label style="font-size: 32px; color:red"> <%= university_module.name %>></label>
+      </div>
+
+    <% end %>
+  </div>
 
 </body>

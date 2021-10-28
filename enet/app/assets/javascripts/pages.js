@@ -23,7 +23,10 @@ $(document).ready(  function(){
                 console.log(`logged_in not true or false. val: ${val}`)
             }
         });
+    });
 
+    $('#register_button').click(function(){
+        window.location.href = '/registrations';
     });
 
 })

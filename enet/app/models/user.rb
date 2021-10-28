@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    has_many :UniversityModule
     # tells the user model that the password_digest field has to be encrypted
     # has_secure_password makes it so that when we define the password_digest 
     # in the user model it knows to expect a password and a password_confirmation
