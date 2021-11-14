@@ -5,3 +5,5 @@
 //= require_self
 //= require_tree .
 //= require pages
+//= require dashboard
+//= require registrations

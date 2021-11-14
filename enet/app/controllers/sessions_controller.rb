@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     def create
         # Lookup a user in the user table that has the email provided.
         # If there
-        user = User
+         user = User
                 .find_by(email: params['email'])
                 .try(:authenticate, params['password'])
 
@@ -20,19 +20,18 @@ class SessionsController < ApplicationController
         # To show that the session was created successfully we are sending a 
         # response with the user that was found.
         if user
-            session[:user_id] = user.id
-            render json:{
-                status: :created,
-                logged_in: true,
-                user: user
-            }
+            log_in(user)
+            respond_to do |format|
+                format.html {redirect_to 'http://localhost:3000/dashboard', status: 200}
+            end
+
         # If there was no user in the database with the email provided or the email
         # provided doesn't match the users password then return a json response with 
         # the status 401 as this is the global status code for unauthorized.
         else
-           render json:{
-             logged_in: false,
-                status: 401
+            render json: {
+              status: 401,
+              logged_in: false
             }
         end 
 
@@ -61,10 +60,9 @@ class SessionsController < ApplicationController
     # telling the caller that the logout was successful.
     def logout
         reset_session
-        render json: {
-            status: 200, 
-            logged_out: true
-        }
+        respond_to do |format|
+            format.html {redirect_to 'http://localhost:3000/', status: 302}
+        end
 
     end
 

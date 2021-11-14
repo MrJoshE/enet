@@ -7,5 +7,6 @@ class ApplicationController < ActionController::Base
     # backend then this needs to be skipped as this logic will occur
     # on the other application.
     skip_before_action :verify_authenticity_token
+    include CurrentUserConcern
 
 end
