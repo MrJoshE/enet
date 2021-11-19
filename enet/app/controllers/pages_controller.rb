@@ -1,6 +1,16 @@
 # Will be the controller that manages the static routes static
 # routes such as the about page and the contact us page.
 class PagesController < ApplicationController
+    include CurrentUserConcern
+
+    before_action :send_to_dashboard
+
+    def send_to_dashboard
+        if @current_user
+            redirect_to '/dashboard'
+        end 
+    end
+
     # The class constructor that allows us to create class wide variables.
     def initialize
         super

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    # tells the user model that each user will have a 1 to many relationship with the university model
     has_many :UniversityModule
     # tells the user model that the password_digest field has to be encrypted
     # has_secure_password makes it so that when we define the password_digest 

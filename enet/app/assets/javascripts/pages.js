@@ -19,6 +19,7 @@ $(document).ready(  function(){
                 alert('Unable to login with the given email and password.')
             }else if (val['logged_in'] === true){
                 alert('Login Successful')
+                window.location.href = '/dashboard'
             }else{
                 console.log(`logged_in not true or false. val: ${val}`)
             }

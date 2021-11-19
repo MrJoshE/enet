@@ -10,3 +10,5 @@ UniversityModule.create( module_leader: 'Andrew Crossan', name: 'Web Application
 UniversityModule.create( module_leader: 'Steve Schneider', name: 'Advanced Algorithms', identifier: 'com2031')
 UniversityModule.create( module_leader: 'Roman Bauer', name: 'Information Retrieval', identifier: 'com2034')
 UniversityModule.create( module_leader: 'Santanu Dash', name: 'Further Programming Paradigms', identifier: 'com2040')
+
+User.create(email: 'admin', password: 'password', password_confirmation: 'password')

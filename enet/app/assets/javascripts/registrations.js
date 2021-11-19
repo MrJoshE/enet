@@ -34,11 +34,15 @@ $(document).ready(  function(){
                 },
                 xhrFields: {withCredentials: true}
             }).then(val => {
+                console.log(val);
                 if (val['status'] === 200){
                     alert('Account created. Sending you to the dashboard now.');
-                }else if (val['status'] === 500 ){
+                    window.location.href = '/dashboard';
+                }
+                else if (val['status'] === 500 || val['status'] === 400){
                     alert(val['reason']);
                 }else{
+                    console.log(`The following status was not accounted for. status: ${val['status']}`);
                     alert('Your account could not be created. Please contact an administrator if this keeps happening.');
                     console.log(`The following status was not accounted for. status: ${val['status']}`);
                 }

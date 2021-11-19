@@ -22,7 +22,12 @@ class SessionsController < ApplicationController
         if user
             log_in(user)
             respond_to do |format|
-                format.html {redirect_to 'http://localhost:3000/dashboard', status: 200}
+                format.json {
+                    render json: {
+                        logged_in: true,
+                          status: 200,
+                        }
+                    }
             end
 
         # If there was no user in the database with the email provided or the email
