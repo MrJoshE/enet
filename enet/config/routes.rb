@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'logged_in' => 'sessions#logged_in'
 
   get 'dashboard' => 'dashboard#index'
+  get 'contact' => 'pages#contact'
 
   resources :sessions, only: [:create]
 

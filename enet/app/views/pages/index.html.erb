@@ -1,17 +1,17 @@
 
 
-<h1 class="title" class=""> <%= @title %> </h1>
+<h1 class="title" class=""> <%= t :website_title %> </h1>
 
 
 <h5 id="website_description">
-  <%= @description %>
+  <%= t :website_description %>
   <small class="text-muted">made by Josh Everett</small>
 </h5>
 
   <div class="login-form card shadow-lg">
     <form style="margin-bottom: 25px">
       <fieldset>
-        <h4 style="text-align: center; padding: 10px">Enter your details</h4>
+        <h4 style="text-align: center; padding: 10px"> <%= t :login_heading %> </h4>
 
         <div class="form-group" style="margin-bottom: 10px">
          <input type="email" class="form-control" id="email_field" aria-describedby="emailHelp" placeholder="Enter email">

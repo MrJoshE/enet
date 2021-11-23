@@ -1,33 +1,47 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  ###  Global Strings
+  website_name: "EverNet"
+  website_title: "Welcome to the EverNet"
+  website_description: "An online dashboard that helps you find basic information about your modules"
+  login_button_label: "Login"
+  register_button_label : "Register"
+
+  #Alert Strings
+  alert_login_successful: "Login successful"
+  alert_login_failed: "Unable to login with the given email and password."
+  alert_register_successful: "Registration completed"
+  alert_register_same_email: "The email address you have entered is already in use, please use another."
+  alert_register_failed: "Unable to create your account. Please try again"
+
+  # Login Form
+  login_heading: "Enter your details"
+  login_email_hint: "Enter email"
+  login_password_hint: "Password"
+
+
+  # Registration Form
+  register_title: "Registration Page"
+  register_heading: "Enter your details"
+  register_email_hint: "Email Address"
+  register_password_hint: "Password"
+  register_password_confirmation_hint: "Confirm your password"
+
+  ## Dashboard Strings
+  # Navbar headings
+  home: "home"
+  contact: "contact"
+  logout: "logout"
+
+  # Module Strings
+  module_heading: "Modules"
+  module_wad: "Web Applications Development"
+  module_aa: "Advanced Algorithms"
+  module_ir: "Information Retrieval"
+  module_ffp: "Further Programming Paradigms"
+
+  # Other utilities
+  utility_heading: "Utilities"
+  utility_live_chat: "Live Chat"
+
+

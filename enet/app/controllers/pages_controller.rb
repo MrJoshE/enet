@@ -3,7 +3,7 @@
 class PagesController < ApplicationController
     include CurrentUserConcern
 
-    before_action :send_to_dashboard
+
 
     def send_to_dashboard
         if @current_user
@@ -20,6 +20,7 @@ class PagesController < ApplicationController
     # The page that the user will initially land on when they enter the website
     # this page will have a title, description and a button to login.
     def index
+        send_to_dashboard
         @title = 'Welcome to the EverNet'
         @description = 'An online dashboard that helps you find basic information about your modules.'
     end
@@ -43,11 +44,13 @@ class PagesController < ApplicationController
 
     # The page that the users will use to login with an existing account.
     def login
+        send_to_dashboard
     end
 
     # The page that new users will use to create account that will be used
     # to login to and use the website.
     def signup
+        send_to_dashboard
     end
 
     # The page that the user will be sent if they are unauthorized / are not
