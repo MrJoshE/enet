@@ -7,6 +7,8 @@ class RoomMessagesController < ApplicationController
     @room_message = RoomMessage.create user: @current_user,
                                        room: @room,
                                        message: params.dig(:room_message, :message)
+    #  broadcast that the message has been created
+    ActionCable.server.broadcast 'rooms/' + @room.id.to_s , @room_message
   end
 
   protected
@@ -14,4 +16,5 @@ class RoomMessagesController < ApplicationController
   def load
     @room = Room.find params.dig(:room_message, :room_id)
   end
+
 end

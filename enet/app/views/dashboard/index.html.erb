@@ -46,9 +46,9 @@
         <% @modules.each do |university_module, index| %>
 
           <div class=" col-md-3 " style="">
-            <div class="card module_card" style="height: 100px">
+            <button class="card " style="height: 100px; width: 100%; align-items: center; ">
               <label style="font-size: 24px; color:#0e0e0e; text-align: center; padding-top: 10px; margin-left: 5px; margin-right: 5px"> <%= university_module.name %></label>
-            </div>
+            </button>
 
           </div>
 
@@ -59,13 +59,13 @@
 
     <div style="padding-top: 30px"></div>
 
-    <h3>Other Utilities</h3>
+    <h3>Utilities</h3>
     <div id="modules-list" class="row" style="padding-top: 10px">
 
       <div class=" col-md-3 " style="">
-        <div class="card module_card" style="height: 100px">
-          <label style="font-size: 24px; color:#0e0e0e; text-align: center; padding-top: 10px"> Live Chat</label>
-        </div>
+        <button class="card" style="height: 100px; width: 100%; align-items: center; " onclick="window.location.href='/rooms'">
+          <label style="font-size: 24px; color:#0e0e0e; text-align: center; padding-top: 10px">Chat Hub</label>
+        </button>
 
       </div>
     </div>

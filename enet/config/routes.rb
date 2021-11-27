@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :university_modules
   resources :rooms
 
+  mount ActionCable.server => '/cable'
+
   get 'about' => 'pages#about'
   get 'unauthorized' => 'pages#unauthorized'
 
