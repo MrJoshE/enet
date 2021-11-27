@@ -38,8 +38,10 @@ class PagesController < ApplicationController
     # The page that will tell the user how to contact the owner of the website
     # and for any support.
     def contact
-        @title = 'Contact Us'
-        @description = ''
+        @email = ""
+        if @current_user
+            @email = @current_user.email
+        end
     end
 
     # The page that the users will use to login with an existing account.

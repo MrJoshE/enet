@@ -28,6 +28,12 @@ module CurrentUserConcern extend ActiveSupport::Concern
             redirect_to "/unauthorized?url=#{request.url}"
         end
     end
+
+    # Gets a list of the university modules that the user is taking
+    def users_modules
+        user_module_ids = UserModule.where(user_id: @current_user.id).pluck(:module_id)
+        UniversityModule.where(id: user_module_ids)
+    end
     
     def log_in(user)
         session[:user_id] = user.id

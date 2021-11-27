@@ -12,6 +12,10 @@ gem 'pg'
 gem 'puma', '~> 5.5.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 6.0'
+
+# Use for forms
+gem 'simple_form'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 4.2.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes

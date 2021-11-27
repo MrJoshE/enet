@@ -4,8 +4,7 @@ class DashboardController < ApplicationController
 
 
     def index
-        user_module_ids = UserModule.where(user_id: @current_user.id).pluck(:module_id)
-        @modules = UniversityModule.where(id: user_module_ids)
+        @modules = users_modules
         @user = User.find_by_id(@current_user.id).email
     end
 
