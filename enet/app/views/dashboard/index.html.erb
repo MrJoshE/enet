@@ -14,12 +14,16 @@
             <span class="visually-hidden">(current)</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">Modules</a>
+
+        <% if @current_user.isAdmin %>
+          <li class="nav-item">
+          <a class="nav-link" href="/university_modules">Edit Modules</a>
         </li>
+        <% end %>
         <li class="nav-item">
           <a class="nav-link" href="/contact">contact</a>
         </li>
+        
 
       </ul>
       <form class="d-flex">
@@ -38,7 +42,7 @@
 
   <div class="grid" style="padding: 20px">
 
-    <h3>Welcome, <%= @current_user.email %></h3>
+    <h3 id='module_button'>Welcome, <%= @current_user.email %></h3>
 
     <% if @modules.length > 0 %>
       <h3 style="padding-top: 20px" >Modules</h3>
@@ -46,7 +50,7 @@
         <% @modules.each do |university_module, index| %>
 
           <div class=" col-md-3 " style="">
-            <button class="card " style="height: 100px; width: 100%; align-items: center; ">
+            <button id='module_button' class="btn btn-light active" style="height: 150px; width: 100%; align-items: center;border: none" onclick='openModulePage("<%=index %>")'>
               <label style="font-size: 24px; color:#0e0e0e; text-align: center; padding-top: 10px; margin-left: 5px; margin-right: 5px"> <%= university_module.name %></label>
             </button>
 
@@ -63,10 +67,9 @@
     <div id="modules-list" class="row" style="padding-top: 10px">
 
       <div class=" col-md-3 " style="">
-        <button class="card" style="height: 100px; width: 100%; align-items: center; " onclick="window.location.href='/rooms'">
+        <button class="btn btn-light active" style="height: 150px; width: 100%; align-items: center; " onclick="window.location.href='/rooms'">
           <label style="font-size: 24px; color:#0e0e0e; text-align: center; padding-top: 10px">Chat Hub</label>
         </button>
-
       </div>
     </div>
 

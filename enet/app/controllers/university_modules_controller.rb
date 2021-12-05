@@ -6,15 +6,18 @@ class UniversityModulesController < ApplicationController
 
   # GET /university_modules or /university_modules.json
   def index
+    admin_check
     @university_modules = UniversityModule.all
   end
 
   # GET /university_modules/1 or /university_modules/1.json
   def show
+
   end
 
   # GET /university_modules/new
   def new
+    admin_check
     @university_module = UniversityModule.new
   end
 
@@ -24,6 +27,7 @@ class UniversityModulesController < ApplicationController
 
   # POST /university_modules or /university_modules.json
   def create
+    admin_check
     @university_module = UniversityModule.new
 
     respond_to do |format|
@@ -39,6 +43,7 @@ class UniversityModulesController < ApplicationController
 
   # PATCH/PUT /university_modules/1 or /university_modules/1.json
   def update
+    admin_check
     respond_to do |format|
       if @university_module.update(university_module_params)
         format.html { redirect_to @university_module, notice: "University module was successfully updated." }
@@ -52,6 +57,7 @@ class UniversityModulesController < ApplicationController
 
   # DELETE /university_modules/1 or /university_modules/1.json
   def destroy
+    admin_check
     @university_module.destroy
     respond_to do |format|
       format.html { redirect_to university_modules_url, notice: "University module was successfully destroyed." }

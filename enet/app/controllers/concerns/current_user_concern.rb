@@ -39,4 +39,13 @@ module CurrentUserConcern extend ActiveSupport::Concern
         session[:user_id] = user.id
     end
 
+    # Checks whether the user is an admin so that we don't have normal users being 
+    # able to perform actions that should be reserved for admins such as 
+    # editing modules.
+    def admin_check
+        unless @current_user.isAdmin
+            redirect_to "/unauthorized?url=#{request.url}"
+        end
+    end
+
 end

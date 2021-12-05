@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_25_182137) do
+ActiveRecord::Schema.define(version: 2021_12_05_135723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,11 +27,11 @@ ActiveRecord::Schema.define(version: 2021_11_25_182137) do
 
   create_table "rooms", force: :cascade do |t|
     t.string "name"
-    t.string "university_module"
+    t.string "university_module_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_rooms_on_name", unique: true
-    t.index ["university_module"], name: "index_rooms_on_university_module", unique: true
+    t.index ["university_module_id"], name: "index_rooms_on_university_module", unique: true
   end
 
   create_table "university_modules", force: :cascade do |t|
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2021_11_25_182137) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "isAdmin", default: false
   end
 
   add_foreign_key "room_messages", "rooms"
