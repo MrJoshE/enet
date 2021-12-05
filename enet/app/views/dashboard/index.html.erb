@@ -50,7 +50,7 @@
         <% @modules.each do |university_module, index| %>
 
           <div class=" col-md-3 " style="">
-            <button id='module_button' class="btn btn-light active" style="height: 150px; width: 100%; align-items: center;border: none" onclick='openModulePage("<%=index %>")'>
+            <button id='module_button' class="btn btn-light active" style="height: 150px; width: 100%; align-items: center;border: none" onclick=navigateTo('/university_modules/<%= university_module.id %>')>
               <label style="font-size: 24px; color:#0e0e0e; text-align: center; padding-top: 10px; margin-left: 5px; margin-right: 5px"> <%= university_module.name %></label>
             </button>
 
@@ -67,7 +67,7 @@
     <div id="modules-list" class="row" style="padding-top: 10px">
 
       <div class=" col-md-3 " style="">
-        <button class="btn btn-light active" style="height: 150px; width: 100%; align-items: center; " onclick="window.location.href='/rooms'">
+        <button class="btn btn-light active" style="height: 150px; width: 100%; align-items: center; " onclick="navigateTo('/rooms')">
           <label style="font-size: 24px; color:#0e0e0e; text-align: center; padding-top: 10px">Chat Hub</label>
         </button>
       </div>

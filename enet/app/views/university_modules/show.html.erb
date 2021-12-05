@@ -1,19 +1,12 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Identifier:</strong>
-  <%= @university_module.identifier %>
-</p>
+<div style='padding:20px;'>
+  <h1 class=title> <%= @university_module.name %> </h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @university_module.name %>
-</p>
+  <h3 class=' '> About the module </h3>
+  <p class="strong"> <%= @university_module.description %> </p>
+  <h3 class=' ' style="padding-top: 10px"> Module Leader </h3>
+  <p class="strong"> The leader for this module is <%= @university_module.module_leader %> </p>
 
-<p>
-  <strong>Module leader:</strong>
-  <%= @university_module.module_leader %>
-</p>
+  <input type="button" class="btn-primary" value="Go to module live chat" onclick="window.location.href='/rooms/<%=roomIdFromModuleId(@university_module.id) %>'">
 
-<%= link_to 'Edit', edit_university_module_path(@university_module) %> |
-<%= link_to 'Back', university_modules_path %>
+</div>

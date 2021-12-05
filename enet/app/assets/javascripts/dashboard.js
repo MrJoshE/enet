@@ -1,3 +1,5 @@
-function openModulePage(id){
-  console.log('hi' + id)
+
+// Function handles the navigation logic
+function navigateTo(route) {
+  window.location.href = route;
 }

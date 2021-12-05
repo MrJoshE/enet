@@ -12,7 +12,7 @@ class UniversityModulesController < ApplicationController
 
   # GET /university_modules/1 or /university_modules/1.json
   def show
-
+    @module = UniversityModule.find(params[:id])
   end
 
   # GET /university_modules/new
