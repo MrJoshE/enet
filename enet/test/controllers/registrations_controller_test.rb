@@ -24,6 +24,9 @@ class RegistrationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should not register new user with invalid password' do
+    puts 'Expected to output:
+Validation failed: Password confirmation doesn\'t match Password'
+    puts 'Actual output:'
     assert_equal User.count , 2
     post registrations_url, params: { email: 'tester1@enet.com', password: "password", password_confirmation: "incorrect_password", modules: [university_modules(:one).id]}
     assert_equal User.count , 2
