@@ -1,5 +1,19 @@
-<h1> <%= @title %> </h1>
+<h1 class="title"> About </h1>
 
-<p> <%= @description %> </p>
+<div style="padding: 40px">
 
-<footer> <%= @footer %> </footer>
+  <h3>What is Enet?</h3>
+  <p class="strong"> <%= t :website_description %> </p>
+  <br>
+  <h3>Who can use Enet?</h3>
+  <p class="strong"> Enet was made for university students so that they have a centralised website to talk to other people doing their module live. </p>
+
+
+  <h3>Return Home</h3>
+  <input type="button" class="btn-danger" style="padding: 10px 20px 10px 20px;margin-top: 25px" value="Home" onclick="window.location.href='/'">
+
+
+
+  <footer style="text-align: center;width:100%;position: fixed; bottom: 100px"> <%= @footer %> </footer>
+
+</div>

@@ -1,4 +1,4 @@
-<h1 class="title" style="padding-bottom: 20px; font-size: 34px">Contact</h1>
+<h1 class="title" style="padding-bottom: 20px; font-size: 34px"><%=t :contact_title %></h1>
 <div class="dropdown-divider"></div>
 
 <div style="padding:50px; font-size: 18px">
@@ -8,11 +8,11 @@
 
   <form id="contact_form" method="post" action="contact/create" style="max-width: 400px">
 
-    <h5>Name / Display name</h5>
+    <h5><%= t :contact_form_label_name %></h5>
     <input class="contactFormInput" type="text" id="name" name="name" placeholder="Enter your name...">
-    <h5>Email Address</h5>
+    <h5><%= t :contact_form_label_email %></h5>
     <input class="contactFormInput" value="<%= @email %>" type="text" id="email" name="email" placeholder="Enter your email address...">
-    <h5>Subject / Message</h5>
+    <h5><%= t :contact_form_label_message %></h5>
     <textarea class="contactFormInput" id="message" name="message" placeholder="Write your message for us here..." style="width:200px;height: 200px"></textarea>
     <br>
     <input id="contact_button" class="btn-primary" style="padding: 5px 20px 5px 20px" type="submit" value="Send message">

@@ -45,4 +45,14 @@ en:
   utility_heading: "Utilities"
   utility_live_chat: "Live Chat"
 
+  # Contact Page
+  contact_title: "Contact"
+
+
+  # Contact form
+  contact_form_title: "Get in touch"
+  contact_form_label_name: "Name / Display Name"
+  contact_form_label_email: "Email"
+  contact_form_label_message: "Message"
+
 
