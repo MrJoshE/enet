@@ -10,4 +10,11 @@ two:
   id: 2
   identifier: 'com2'
   name: 'Module 2'
-  module_leader: 'Leader 1'
+  module_leader: 'Leader 2'
+
+
+three:
+  id: 3
+  identifier: 'com3'
+  name: 'Module 3'
+  module_leader: 'Leader 3'

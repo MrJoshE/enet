@@ -15,6 +15,24 @@ class RegistrationsController < ApplicationController
 
     def create
         modules = params['modules']
+        if !modules || modules.empty?
+            flash[:error] = "You must select at least one module"
+            respond_to do |format|
+                format.json {
+                    render json: {
+                      status: 400,
+                      reason: "You must select at least one module."
+                    }
+                }
+                format.html {
+                    render html: {
+                      status: 400,
+                      reason: "That email address is already in use, Please use another."
+                    }
+                }
+            end
+            return
+        end
         begin
             # Check to see if there is a user that already has the email that the user is
             # trying to register with
@@ -24,6 +42,7 @@ class RegistrationsController < ApplicationController
             # we want to respond to the client with an error that tells them that the email
             # address is already in use so their account cannot be created.
             if existing_user != nil
+                flash[:error] = "The email address you have entered is already in use. Please try another email address."
                 respond_to do |format|
                     format.json {
                         render json: {
@@ -31,7 +50,15 @@ class RegistrationsController < ApplicationController
                             reason: "That email address is already in use, Please use another."
                         }
                     }
+                    format.html {
+                        render html: {
+                          status: 400,
+                          reason: "That email address is already in use, Please use another."
+                        }
+                    }
                 end
+
+
                 return
             else
 
@@ -40,55 +67,37 @@ class RegistrationsController < ApplicationController
 
             # create a user object with the registration params and assign it to the user variable.
             # If the creation of the user fails then an error is thrown (which will be caught in the rescue)
-            user = User.create!(
-                email: params['email'],
-                password: params['password'],
-                password_confirmation: params['password_confirmation']
-            )
+            user = User.create!(user_params)
 
             # if the user was successfully created ...
-            if user
-                # create a list of user_modules that will be created for this user so that
-                # when we are in the dashboard we can pull the modules for a given user.
-                user_modules = []
-                modules.each do |module_id|
-                    user_modules.push({
-                                        user_id: user.id,
-                                        module_id: module_id
-                                      })
-                end
+            # create a list of user_modules that will be created for this user so that
+            # when we are in the dashboard we can pull the modules for a given user.
+            user_modules = []
+            modules.each do |module_id|
+                user_modules.push({
+                                    user_id: user.id,
+                                    module_id: module_id
+                                  })
+            end
 
-                # need to create a new entry in the user_modules table for each of the modules that the user
-                # has selected on registration and assign then to this user.
-                modules = UserModule.create(user_modules)
+            # need to create a new entry in the user_modules table for each of the modules that the user
+            # has selected on registration and assign then to this user.
+            UserModule.create(user_modules)
 
-                # put the users id in the session so they stay logged in for this browser session
-                session[:user_id] = user.id
+            # put the users id in the session so they stay logged in for this browser session
+            session[:user_id] = user.id
 
-                # send a response back to the client with a redirect status and redirect_to of the dashboard
-                # so they navigate to the dashboard now they are logged in.
-                respond_to do |format|
-                    format.json {
-                        render json: {
-                          status: 200,
-                          reason: 'Account has been created successfully.'
-                        }
+            # send a response back to the client with a redirect status and redirect_to of the dashboard
+            # so they navigate to the dashboard now they are logged in.
+            respond_to do |format|
+                format.json {
+                    render json: {
+                      status: 302,
+                      reason: 'Account has been created successfully.',
+                      location: '/dashboard'
                     }
-                    format.html { redirect_to '/dashboard', status: 200 }
-                end
-            else
-                puts 'the user was not able to be created.'
-                # if the user was not created successfully send a json response back to the client
-                # with a status 500 and a reason that is stated below that will be alerted to the
-                # user when they receive the response.
-                respond_to do |format|
-                    format.json {
-                        render json: {
-                          status: 500,
-                          reason: 'There was an unknown error when creating your account.'
-                        }
-                    }
-                end
+                }
+                format.html { redirect_to '/dashboard', status: 302 }
             end
 
         # if the somewhere here throws an error then we will catch the error instead of letting it crash
@@ -97,18 +106,24 @@ class RegistrationsController < ApplicationController
         rescue => e
             puts e
             respond_to do |format|
-                    format.json {
-                        render json: {
-                          status: 500,
-                          reason: "We were unable to create your account. "
-                        }
+                format.json {
+                    render json: {
+                      status: 500,
+                      reason: "We were unable to create your account. "
                     }
-                end
+                }
+                format.html {
+                    render html: {
+                      status: 500,
+                      reason: 'There was an unknown error when creating your account.'
+                    }
+                }
+            end
         end
     end
 
     private
     def user_params
-        params.require(:user).permit(:email, :password, :password_confirmation)
+        params.permit(:email, :password, :password_confirmation, :modules)
     end
 end

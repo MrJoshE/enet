@@ -9,6 +9,6 @@ one:
 
 two:
   id: 12
-  email: 'authenticated'
+  email: 'user@enet.com'
   password_digest: '$2a$12$7NfYlw0MyDQyEKqRGuapz.pAuRO27XiR43/dzQhyxJmS8kQP3fGuy'
   is_admin: false

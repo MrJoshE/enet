@@ -13,4 +13,5 @@ class User < ApplicationRecord
     validates_presence_of :email 
     # tells the user model that the email that is provided must be unique
     validates_uniqueness_of :email
+
 end

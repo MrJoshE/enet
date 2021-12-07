@@ -31,19 +31,14 @@ $(document).ready(  function(){
                 },
                 xhrFields: {withCredentials: true}
             }).then(val => {
-                console.log(val);
-                if (val['status'] === 200){
-                    alert('Account created. Sending you to the dashboard now.');
-                    window.location.href = '/dashboard';
+                if (val.status === 302) {
+                    window.location.href = val.location;
+                }else {
+                    $.get(window.location.href).then(payload => {
+                        $('body').html(payload.substring(payload.indexOf('body')+6,payload.indexOf('</body>')));
+                    });
                 }
-                else if (val['status'] === 500 || val['status'] === 400){
-                    alert(val['reason']);
-                }else{
-                    console.log(`The following status was not accounted for. status: ${val['status']}`);
-                    alert('Your account could not be created. Please contact an administrator if this keeps happening.');
-                    console.log(`The following status was not accounted for. status: ${val['status']}`);
-                }
-            });
+             })
         }
         catch(e){
             alert(e)

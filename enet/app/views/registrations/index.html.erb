@@ -2,21 +2,26 @@
 <h1 class="title"> Registration Page </h1>
 
 <div class="card login-form ">
+  <% if flash[:error] %>
+    <div class="alert alert-danger" style="width:100%; text-align: center">
+      <strong style="text-align: center;">Oh snap!</strong> <%= flash[:error] %>
+    </div>
+  <% end %>
 
   <form >
     <div class="form-group" style="justify-content: center">
       <h4 style="text-align: center; padding: 10px">Enter your details</h4>
 
       <div class="form-floating mb-3">
-        <input id="email_field" type="email" class="form-control" placeholder="name@example.com">
+        <input id="email_field" type="email" class="form-control" placeholder="name@example.com" required pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/">
         <label for="floatingInput">Email address</label>
       </div>
       <div class="form-floating mb-3">
-        <input id="password_field" type="password" class="form-control"  placeholder="Password">
+        <input id="password_field" type="password" class="form-control"  placeholder="Password" required>
         <label for="floatingPassword">Password</label>
       </div>
       <div class="form-floating">
-        <input id="password_confirmation_field" type="password" class="form-control"  placeholder="Password">
+        <input id="password_confirmation_field" type="password" class="form-control"  placeholder="Password" required>
         <label for="floatingPassword">Confirm your password</label>
       </div>
     </div>
