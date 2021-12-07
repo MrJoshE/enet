@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_05_165924) do
+ActiveRecord::Schema.define(version: 2021_12_07_094139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "email"
+    t.string "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name", default: "Anonymous"
+  end
 
   create_table "room_messages", force: :cascade do |t|
     t.bigint "room_id", null: false
@@ -55,7 +63,7 @@ ActiveRecord::Schema.define(version: 2021_12_05_165924) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "isAdmin", default: false
+    t.boolean "is_admin", default: false
   end
 
   add_foreign_key "room_messages", "rooms"

@@ -14,6 +14,7 @@ class RoomsController < ApplicationController
   end
 
   def create
+    admin_check
     @room = Room.new permitted_parameters
     if @room.save
       redirect_to university_module_path(@room.university_module_id)
@@ -25,11 +26,16 @@ class RoomsController < ApplicationController
   def load
     module_ids = users_modules.pluck(:id)
     @rooms = Room.where(university_module_id: module_ids)
-    @room = Room.find(params[:id]) if params[:id]
+    if params[:id]
+      @room = Room.find(params[:id])
+    else
+      @room = @rooms.first
+    end
+
   end
 
   def permitted_parameters
-    params.require(:room).permit(:name, :description, :university_module_id)
+    params.require(:room).permit(:name, :university_module_id)
   end
 
   def show

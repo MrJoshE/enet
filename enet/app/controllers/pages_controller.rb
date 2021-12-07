@@ -21,18 +21,11 @@ class PagesController < ApplicationController
     # this page will have a title, description and a button to login.
     def index
         send_to_dashboard
-        @title = 'Welcome to the EverNet'
-        @description = 'An online dashboard that helps you find basic information about your modules.'
     end
 
     # The page that the users will goto if they want to know more about information about
     # the website and what is made for.
     def about
-        @title = 'About'
-        @description = 'Evernet is an online dashboard that allows users 
-        to view basic information about their chosen modules. To use this 
-        dashboard please press the home button and make sure that you are 
-        signed in. Your selected modules should be visible onscreen.'
     end
 
     # The page that will tell the user how to contact the owner of the website

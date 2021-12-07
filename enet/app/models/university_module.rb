@@ -1,3 +1,3 @@
 class UniversityModule < ApplicationRecord
-  belongs_to :User
+  has_one :user_module
 end

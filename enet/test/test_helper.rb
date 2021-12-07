@@ -7,4 +7,13 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def login (email, password)
+    post '/sessions/', params: { email: email, password: password}
+  end
+
+  def admin_check(user)
+    assert user.is_admin?
+  end
+
+
 end

@@ -16,5 +16,9 @@
     <%= javascript_include_tag 'application', defer: true%>
 
     <%= yield %>
+    <% if on_home_page %>
+     <%= render "layouts/footer" %>
+    <% end %>
+
   </body>
 </html>

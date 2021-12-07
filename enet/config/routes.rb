@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'contact/create'
   resources :room_messages
   resources :rooms
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -7,6 +8,10 @@ Rails.application.routes.draw do
 
   resources :university_modules
   resources :rooms
+  resources :user_modules, only: [:create, :destroy]
+
+  get 'contact' => 'contact#index'
+  post 'contact/create' => 'contact#create'
 
   mount ActionCable.server => '/cable'
 
@@ -18,7 +23,7 @@ Rails.application.routes.draw do
   get 'logged_in' => 'sessions#logged_in'
 
   get 'dashboard' => 'dashboard#index'
-  get 'contact' => 'pages#contact'
+
 
   resources :sessions, only: [:create]
 

@@ -4,8 +4,8 @@ class SessionsController < ApplicationController
     # user in their session that is logged in
     include CurrentUserConcern
 
-    # When sessions#create is called a post request will be sent 
-    # and received here and this function will be run.
+    # When sessions#create is called, it will create a new session for the user
+    # (this is the same as logging in)
     def create
         # Lookup a user in the user table that has the email provided.
         # If there
@@ -23,17 +23,23 @@ class SessionsController < ApplicationController
             log_in(user)
             respond_to do |format|
                 format.json {
+                    flash[@success] = "Successfully logged in!"
                     render json: {
-                        logged_in: true,
-                          status: 200,
-                        }
+                      logged_in: true,
+                      status: 302,
+                      location: dashboard_path
                     }
+                }
+                format.html {
+                    redirect_to dashboard_path
+                }
             end
 
         # If there was no user in the database with the email provided or the email
         # provided doesn't match the users password then return a json response with 
         # the status 401 as this is the global status code for unauthorized.
         else
+            flash[:error] = "Invalid email or password"
             render json: {
               status: 401,
               logged_in: false

@@ -21,17 +21,14 @@ class UniversityModulesController < ApplicationController
     @university_module = UniversityModule.new
   end
 
-  # GET /university_modules/1/edit
-  def edit
-  end
-
   # POST /university_modules or /university_modules.json
   def create
     admin_check
-    @university_module = UniversityModule.new
-
+    @university_module = UniversityModule.new(university_module_params)
     respond_to do |format|
       if @university_module.save
+        let user_module = UserModule.new({ user: @current_user,university_module:  @university_module })
+        user_module.save!
         format.html { redirect_to @university_module, notice: "University module was successfully created." }
         format.json { render :show, status: :created, location: @university_module }
       else
@@ -45,7 +42,7 @@ class UniversityModulesController < ApplicationController
   def update
     admin_check
     respond_to do |format|
-      if @university_module.update(university_module_params)
+      if @university_module.update
         format.html { redirect_to @university_module, notice: "University module was successfully updated." }
         format.json { render :show, status: :ok, location: @university_module }
       else

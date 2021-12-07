@@ -19,9 +19,6 @@ $(document).ready(  function(){
                 modules.push(checkbox.attr('value'));
 
         } );
-
-
-
         try{
              $.ajax({
                 url: '/registrations',

@@ -8,16 +8,17 @@ module CurrentUserConcern extend ActiveSupport::Concern
         before_action :set_current_user
     end
 
-    # method that will check if there is a current user 
-    # in the session
+    # method that will set the current user instance variable to
+    # the current user in the session if it exists
     def set_current_user
         # checks if there is a user_id stored in the session
         if session[:user_id]
             # sets the @current_user variable to the user
-            # with that id so that it can be used by any 
-            # controller with this CurrentUserConcern 
+            # with that id so that it can be used by any
+            # controller with this CurrentUserConcern
             @current_user = User.find(session[:user_id])
         end
+        # @current_user = User.find(session[:user_id]) if session[:user_id]
     end
 
     # Performs a further check to make sure that the user is
@@ -43,7 +44,7 @@ module CurrentUserConcern extend ActiveSupport::Concern
     # able to perform actions that should be reserved for admins such as 
     # editing modules.
     def admin_check
-        unless @current_user.isAdmin
+        unless @current_user.is_admin
             redirect_to "/unauthorized?url=#{request.url}"
         end
     end

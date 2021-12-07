@@ -2,13 +2,20 @@
 
 <h1 class="title" class=""> <%= t :website_title %> </h1>
 
-
 <h5 id="website_description">
   <%= t :website_description %>
   <small class="text-muted">made by Josh Everett</small>
 </h5>
 
   <div class="login-form card shadow-lg">
+      <% if flash[:error] %>
+        <div class="alert alert-danger" style="width:100%; text-align: center">
+          <strong style="text-align: center;">Oh snap!</strong> <%= flash[:error] %>
+        </div>
+      <% end %>
+
+
+
     <form style="margin-bottom: 25px">
       <fieldset>
         <h4 style="text-align: center; padding: 10px"> <%= t :login_heading %> </h4>

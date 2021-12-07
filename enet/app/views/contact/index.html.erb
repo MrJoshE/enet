@@ -6,17 +6,17 @@
   <br>
   <h2>Get in touch</h2>
 
-  <div style="max-width: 400px">
+  <form id="contact_form" method="post" action="contact/create" style="max-width: 400px">
 
     <h5>Name / Display name</h5>
-    <input class="contactFormInput" type="text" id="firstNameInput" name="firstName" placeholder="Enter your name...">
+    <input class="contactFormInput" type="text" id="name" name="name" placeholder="Enter your name...">
     <h5>Email Address</h5>
-    <input class="contactFormInput" value="<%= @email %>"type="text" id="firstNameInput" name="firstName" placeholder="Enter your email address...">
+    <input class="contactFormInput" value="<%= @email %>" type="text" id="email" name="email" placeholder="Enter your email address...">
     <h5>Subject / Message</h5>
-    <textarea class="contactFormInput" id="subject" name="subject" placeholder="Write your message for us here..." style="width:200px;height: 200px"></textarea>
+    <textarea class="contactFormInput" id="message" name="message" placeholder="Write your message for us here..." style="width:200px;height: 200px"></textarea>
     <br>
-    <input class="btn-primary" style="padding: 5px 20px 5px 20px" type="submit" value="Send message">
-  </div>
+    <input id="contact_button" class="btn-primary" style="padding: 5px 20px 5px 20px" type="submit" value="Send message">
+  </form>
 
 
   <br>
@@ -27,7 +27,7 @@
   <ul>
     <li>Firstly to use the Enet platform you will need to be logged in. You can register an account <a href="/registrations"> here</a> </li>
 
-    <li>Once you have created an account you will be automatically logged into the dashboard. If this does not happen then you can <a href="/">click here</a> to go to the login page.</li>
+    <li>Once you have created an account you will be automatically logged into the dashboard. If this does not happen then you can <a href="/app/assets/config">click here</a> to go to the login page.</li>
     <li>Now you are logged in you can choose what you want to do on the dashboard.</li>
     <li>The dashboard will allow you to view the details of all of the modules that you selected during registration.</li>
   </ul>

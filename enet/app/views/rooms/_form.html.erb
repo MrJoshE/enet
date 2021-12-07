@@ -1,5 +1,5 @@
 <%= simple_form_for @room do |form| %>
   <%= form.input :name %>
-  <%= form.input :university_module_id %>
+  <%= form.label "Module Id" %> <%= form.select :university_module_id, UniversityModule.all.pluck(:id)+ [0] %>
   <%= form.submit "Save", class: 'btn btn-success' %>
 <% end %>

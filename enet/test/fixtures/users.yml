@@ -1,9 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  email: MyString
-  password_digest: MyString
+  id: 7
+  email: 'josh@enet.com'
+  password_digest: '$2a$12$1I43/e631DSWxN4y3WeEuedG5NlwZ7z7kNIIWyvGm9MgcOUKTHwJK'
+  is_admin: true
+
 
 two:
-  email: MyString
-  password_digest: MyString
+  id: 12
+  email: 'authenticated'
+  password_digest: '$2a$12$7NfYlw0MyDQyEKqRGuapz.pAuRO27XiR43/dzQhyxJmS8kQP3fGuy'
+  is_admin: false

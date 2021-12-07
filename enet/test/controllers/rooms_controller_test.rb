@@ -1,7 +1,15 @@
 require "test_helper"
 
 class RoomsControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+
+  setup do
+    login(users(:one).email, "password")
+  end
+
+  test 'show index' do
+    get rooms_url
+    assert_response :success
+  end
+
+
 end

@@ -4,4 +4,8 @@ class UserModule < ApplicationRecord
   # and a module_id for each entry.
   validates_presence_of :user_id
   validates_presence_of :module_id
+
+  has_one :user
+  has_one :university_module
+
 end

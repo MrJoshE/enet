@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  identifier: MyString
-  name: MyString
-  module_leader: MyString
+  id: 1
+  identifier: 'com1'
+  name: 'Module 1'
+  module_leader: 'Leader 1'
 
 two:
-  identifier: MyString
-  name: MyString
-  module_leader: MyString
+  id: 2
+  identifier: 'com2'
+  name: 'Module 2'
+  module_leader: 'Leader 1'

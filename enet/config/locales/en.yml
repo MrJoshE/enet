@@ -3,7 +3,8 @@ en:
   ###  Global Strings
   website_name: "EverNet"
   website_title: "Welcome to the EverNet"
-  website_description: "An online dashboard that helps you find basic information about your modules"
+  website_description: "An online dashboard that helps you find basic information about your modules and provides a
+   live chat that allows you to chat with other people taking the same modules that you are."
   login_button_label: "Login"
   register_button_label : "Register"
 
